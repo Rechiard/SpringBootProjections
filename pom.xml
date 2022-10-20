@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>springboot1222</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>springboot-first</module>
+        <module>java_spi</module>
+        <module>spring-boot-datasoruce</module>
+        <module>springboot-mybatis-anno</module>
+        <module>springboot-mybatis-config</module>
+        <module>springboot-springmvc</module>
+        <module>spring-boot-company-sys</module>
+    </modules>
+
+    <packaging>pom</packaging>
+
+    <!--springboot的starter-->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.1</version>
+    </parent>
+
+    <dependencies>
+
+        <!--yaml提示的依赖，方便编写yaml文件-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <optional>true</optional>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+
+        <!--lombok的依赖，用于简化pojo中的set/get/tosrting等等方法，可以利用@Data代替，注意@Data简化的是无参的构造函数-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.2</version>
+        </dependency>
+
+        <!--校验的规范依赖,校验是为了约束一些实例化的条件，例如程序员的年龄在20-35之内，规范了数据库的约束。
+        在实际例子中，通过@Validated来装配到类中，并且有@Not Null/@Max/@Min等等注解的使用
+        当有内部类或者别的类引用并且没有属性注入的时候，需要在属性上面添加@Vaild注解，否则无法判断内部类的实例化是否为空-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>5.2.0.Final</version>
+        </dependency>
+
+        <!--web的starter-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--jdbc的starter(里面默认启用的数据源是Hikari，如果要启用别的，需要再yaml中指定type)-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <!--mysql依赖-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <scope>runtime</scope>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
+        <!--热部署(在项目run的过程中，当源码改变时页面也相应的发生改变)等多个Developer Tools工具-->
+        <!-- 热部署的使用：
+            1.通过ctrl+F9来进行rebuild实习网页的更新(热部署)
+            2.现在File->setting->compiler->build project automatically打勾，
+              再用快捷键 ctrl+shift+alt+/ 打开Registry,找到compiler.automake.allow.when.app.running打上勾
+            3.run程序后，在console中clear All，修改源码，在浏览器中打开localhost：8080/hello，刷新，则可以看到idea的console自动重新部署了
+        -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+    </dependencies>
+
+
+</project>

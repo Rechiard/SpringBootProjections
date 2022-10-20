@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/java_spi/ali-pay/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java_spi/maintest/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java_spi/service-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java_spi/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java_spi/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java_spi/wx-pay/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-company-sys/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spring-boot-datasoruce/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-first/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-mybatis-anno/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-mybatis-config/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-springmvc/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

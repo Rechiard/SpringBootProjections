@@ -1,0 +1,34 @@
+#数据源的配置
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/tx_user?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+
+#mybatis的配置
+#根据mybatis自动配置的源码学习：
+#mybatis的配置将Mapper包下的PersonMapper是根据MapperFactoryBean来创建代理对象的，并且实例化sqlsessionFactory来创建到sessionTemplate对象对数据库的每一次的操作的开启和关闭等等操作进行持久化支持的。
+#而在mybatis自动配置中，我们不需要再创建MapperFactoryBean 和 sqlsessionFactory来对我们自定义的PersonMapper进行动态代理，而是根据注解@MapperScan来进行自动配置
+#注解@MapperScan在主程序FirstSpringApplication中有和注解@Mapper的重点区别讲解
+mybatis:
+  #config-location: classpath:sqlMapConfig.xml   #设置配置文件的位置（可以省略)
+  mapper-locations: classpath:mapper/*.xml    #当前 mapper下的所有xml都作为映射文件
+  configuration:
+    map-underscore-to-camel-case: true      #针对于解决 model数据模型编写的驼峰方式 和 数据库的模型编写的下划线方式 的匹配问题
+  type-aliases-package: sboot.model         #可以在model中的peron和Person都映射为一个相同的文件
+
+#Tomcat内置原理：
+#在ServletWebServerFactoryAutoConfiguration类中有对Tomcat工厂的设置，并且在类中import的ServletWebServerFactoryConfiguration.EmbeddedTomcat类可以为Tomcat服务器实例化以及实现初始化方法
+#在主类中的SpringApplication.run中可以实现Tomcat的初始化功能

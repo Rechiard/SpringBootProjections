@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>springboot1222</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>springboot-mybatis-config</artifactId>
+
+    <!--热部署(在项目run的过程中，当源码改变时页面也相应的发生改变)等多个Developer Tools工具-->
+    <!-- 热部署的使用：
+        1.通过ctrl+F9来进行rebuild实习网页的更新(热部署)
+        2.现在File->setting->compiler->build project automatically打勾，
+          再用快捷键 ctrl+shift+alt+/ 打开Registry,找到compiler.automake.allow.when.app.running打上勾
+        3.run程序后，在console中clear All，修改源码，在浏览器中打开localhost：8080/hello，刷新，则可以看到idea的console自动重新部署了
+    -->
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+    <!--    <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.15</version>
+        </dependency>
+-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.9</version>
+        </dependency>
+
+        <!--mybatis提供自动配置类的starter-->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>1.3.1</version>
+        </dependency>
+
+    </dependencies>
+
+    <!--打包用的插件，用于执行打包后的文件，提供主清单属性-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

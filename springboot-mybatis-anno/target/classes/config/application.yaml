@@ -1,0 +1,41 @@
+server:
+  port:8080
+
+#spring:
+#  devtools:
+#    restart:
+#      exclude: config/**
+
+#yaml语法是层级关系的语法，依据空格和tab来分层关系，检验代码的正确性是根据能否合并按钮在一起来判断语法的正确性原理。
+#以下展示了各类型数据中在yaml实例化的表示形式
+#在pojo中里使用@ConfigurationProperties("profix = yaml.level")，可将以下数据注入到pojo的类对象中
+
+yaml:
+  level:
+    str: 字符串不需要加\n双引号
+    specialStr: "字符串不需要加\n双引号"
+    num: 666
+    Dnum: 666.88
+    birth: 2000/12/10 12:23:34
+
+#    list:
+#      - one
+#      - two
+#      - three
+    list: [one,two]
+
+    set: [1,2,3,1]
+#    set:
+#      - 1
+#      - 2
+#      - 1
+
+    map: {key1: value1, key2 :value2}
+    #自定义具体对象的集合(例子为user的类中有着name和salary的属性)
+    users:
+      - name: zhangsan
+        salary: 123.8
+      - name: lisi
+        salary: 888.00
+
+
